@@ -10,7 +10,7 @@ import UIKit
 
 class TripsTableVC: UITableViewController {
 
-    var userTrips = [TripDate]()
+    var trips = [Trip]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

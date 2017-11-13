@@ -158,7 +158,7 @@
                                 <color key="tintColor" red="0.98031669860000004" green="0.97607129810000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="TRIPS"/>
                                 <connections>
-                                    <segue destination="Awg-qY-l6L" kind="show" id="26Z-sJ-lZd"/>
+                                    <segue destination="g3B-gK-VLN" kind="show" id="eIB-tN-yd0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDm-v0-8Ks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184.8" y="-829.83508245877067"/>
+            <point key="canvasLocation" x="1233" y="-831"/>
         </scene>
         <!--PickScheduleVC-->
         <scene sceneID="Y6z-hG-RS3">
@@ -201,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-jZ-d9Z">
-                                <rect key="frame" x="14" y="505" width="345" height="50"/>
+                                <rect key="frame" x="14" y="549" width="345" height="50"/>
                                 <color key="backgroundColor" red="0.1130518839" green="0.1049865261" blue="0.26296675209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wFV-gJ-hvX"/>
@@ -211,25 +211,25 @@
                                 <state key="normal" title="SEE TRIPS"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="DepartOnTxt" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="choose departure date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgw-at-zZG" userLabel="DepartOnTxt">
-                                <rect key="frame" x="16" y="152" width="343" height="30"/>
+                                <rect key="frame" x="16" y="108" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="ReturnOnTxt" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="choose return date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yj2-x1-lNl" userLabel="ReturnOnTxt">
-                                <rect key="frame" x="16" y="247" width="343" height="30"/>
+                                <rect key="frame" x="16" y="203" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depart On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZQ-Lu-ZSD">
-                                <rect key="frame" x="16" y="109" width="343" height="21"/>
+                                <rect key="frame" x="16" y="65" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0K-Rt-S0w">
-                                <rect key="frame" x="16" y="204" width="343" height="21"/>
+                                <rect key="frame" x="16" y="160" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -258,12 +258,11 @@
                     <connections>
                         <outlet property="departOnTxt" destination="jgw-at-zZG" id="fSz-0W-M9I"/>
                         <outlet property="returnOnTxt" destination="Yj2-x1-lNl" id="p9s-SV-gJo"/>
-                        <segue destination="g3B-gK-VLN" kind="show" id="7f2-fP-T5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeZ-SH-HLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917.5999999999999" y="-830.73463268365822"/>
+            <point key="canvasLocation" x="2073" y="-125"/>
         </scene>
         <!--TripsTableVC-->
         <scene sceneID="wZb-8h-VkY">
@@ -318,10 +317,15 @@
                             <outlet property="delegate" destination="g3B-gK-VLN" id="cxy-wO-px6"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="je0-yO-6tj">
+                        <barButtonItem key="rightBarButtonItem" title="add trip" id="H7u-GH-FYq"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7C-Ne-9H4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812" y="-831"/>
+            <point key="canvasLocation" x="2074" y="-830"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OeJ-5N-bvc">
@@ -360,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JgR-Jv-LZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2609" y="-125"/>
+            <point key="canvasLocation" x="3286" y="-125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A17-Db-AYA">

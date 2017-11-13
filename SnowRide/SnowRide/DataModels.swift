@@ -12,7 +12,7 @@ import Foundation
 struct Trip {
     let departsOn: String
     let returnsOn: String
-    let departsAt: timeval32
+//    let departsAt: timeval32
     let userID: Int
     let passenger: String?
     let driver: String?
