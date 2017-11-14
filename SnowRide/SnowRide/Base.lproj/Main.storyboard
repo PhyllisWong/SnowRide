@@ -195,7 +195,7 @@
         <!--PickScheduleVC-->
         <scene sceneID="Y6z-hG-RS3">
             <objects>
-                <viewController storyboardIdentifier="PickScheduleVC" title="PickScheduleVC" id="Awg-qY-l6L" customClass="PickScheduleVC" customModule="SnowRide" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createTripVC" title="PickScheduleVC" id="Awg-qY-l6L" customClass="createTripVC" customModule="SnowRide" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YDJ-De-jXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

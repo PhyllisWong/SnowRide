@@ -1,5 +1,5 @@
 //
-//  PickScheduleVC.swift
+//  createTripVC.swift
 //  SnowRide
 //
 //  Created by djchai on 11/8/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickScheduleVC: UIViewController {
+class createTripVC: UIViewController {
 
     @IBOutlet weak var departOnTxt: UITextField!
     @IBOutlet weak var returnOnTxt: UITextField!

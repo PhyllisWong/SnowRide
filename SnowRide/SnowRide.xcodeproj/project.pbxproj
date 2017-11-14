@@ -19,7 +19,7 @@
 		B9CD54AC1FB3C0BF003F7C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */; };
 		B9CDD4941FB3C23F00F19BF5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD4931FB3C23F00F19BF5 /* ProfileVC.swift */; };
 		B9CDD49A1FB3C47E00F19BF5 /* TripsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */; };
-		B9CDD49C1FB3C4E900F19BF5 /* PickScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD49B1FB3C4E900F19BF5 /* PickScheduleVC.swift */; };
+		B9CDD49C1FB3C4E900F19BF5 /* createTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD49B1FB3C4E900F19BF5 /* createTripVC.swift */; };
 		B9D2CA271FB3BDA200001AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 		B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CDD4931FB3C23F00F19BF5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableVC.swift; sourceTree = "<group>"; };
-		B9CDD49B1FB3C4E900F19BF5 /* PickScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickScheduleVC.swift; path = ../PickScheduleVC.swift; sourceTree = "<group>"; };
+		B9CDD49B1FB3C4E900F19BF5 /* createTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = createTripVC.swift; path = ../createTripVC.swift; sourceTree = "<group>"; };
 		B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +76,7 @@
 			children = (
 				B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */,
 				B96C57411FB3D02D000A5CAA /* Profile */,
-				B9CDD49B1FB3C4E900F19BF5 /* PickScheduleVC.swift */,
+				B9CDD49B1FB3C4E900F19BF5 /* createTripVC.swift */,
 				B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */,
 				B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */,
 				B9B6B21F1FB3A54200BDAACB /* TripViewCellModel.swift */,
@@ -171,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9CBE7CA1FB29786001EEF07 /* TripViewCell.swift in Sources */,
-				B9CDD49C1FB3C4E900F19BF5 /* PickScheduleVC.swift in Sources */,
+				B9CDD49C1FB3C4E900F19BF5 /* createTripVC.swift in Sources */,
 				B837847D1FA141F700E82E80 /* DataModels.swift in Sources */,
 				B9CDD4941FB3C23F00F19BF5 /* ProfileVC.swift in Sources */,
 				B83B307A1FA00AB600903B24 /* LoginVC.swift in Sources */,
