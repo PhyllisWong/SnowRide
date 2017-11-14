@@ -12,7 +12,6 @@
 		B83B307A1FA00AB600903B24 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83B30791FA00AB600903B24 /* LoginVC.swift */; };
 		B83B307D1FA00AB600903B24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83B307B1FA00AB600903B24 /* Main.storyboard */; };
 		B83B30821FA00AB700903B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83B30801FA00AB700903B24 /* LaunchScreen.storyboard */; };
-		B9A437AD1FBA645100C6B622 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B83B30831FA00AB700903B24 /* Info.plist */; };
 		B9AFB07D1FB5282500133D3C /* NetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFB07C1FB5282500133D3C /* NetWorking.swift */; };
 		B9B6B2201FB3A54200BDAACB /* TripViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6B21F1FB3A54200BDAACB /* TripViewCellModel.swift */; };
 		B9CBE7CA1FB29786001EEF07 /* TripViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */; };
@@ -31,7 +30,6 @@
 		B83B30791FA00AB600903B24 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B83B307C1FA00AB600903B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B83B30811FA00AB700903B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B83B30831FA00AB700903B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = SnowRide/Info.plist; sourceTree = "<group>"; };
 		B9AFB07C1FB5282500133D3C /* NetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetWorking.swift; path = SnowRide/NetWorking.swift; sourceTree = "<group>"; };
 		B9B6B21F1FB3A54200BDAACB /* TripViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewCellModel.swift; sourceTree = "<group>"; };
 		B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewCell.swift; sourceTree = "<group>"; };
@@ -59,10 +57,9 @@
 			children = (
 				B83B30761FA00AB600903B24 /* SnowRide */,
 				B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */,
+				B9CD54A91FB3C08D003F7C88 /* Info.plist */,
 				B9AFB07C1FB5282500133D3C /* NetWorking.swift */,
 				B83B30751FA00AB600903B24 /* Products */,
-				B83B30831FA00AB700903B24 /* Info.plist */,
-				B9CD54A91FB3C08D003F7C88 /* Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,7 +159,6 @@
 				B9CD54AA1FB3C08D003F7C88 /* Info.plist in Resources */,
 				B83B30821FA00AB700903B24 /* LaunchScreen.storyboard in Resources */,
 				B9D2CA271FB3BDA200001AF7 /* Assets.xcassets in Resources */,
-				B9A437AD1FBA645100C6B622 /* Info.plist in Resources */,
 				B83B307D1FA00AB600903B24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,8 +316,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = SnowRide/Info.plist;
+				DEVELOPMENT_TEAM = S44SNCV32X;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jcswifty.SnowRide;
@@ -335,8 +331,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = SnowRide/Info.plist;
+				DEVELOPMENT_TEAM = S44SNCV32X;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jcswifty.SnowRide;
