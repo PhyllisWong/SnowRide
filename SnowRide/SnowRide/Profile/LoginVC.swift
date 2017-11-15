@@ -2,7 +2,7 @@
 //  SnowRide
 //
 //  Created by Johnathan Chen on 10/24/17.
-//  Copyright © 2017 JCSwifty. All rights reserved.
+//  Copyright © 2017 newLab. All rights reserved.
 //
 
 import UIKit

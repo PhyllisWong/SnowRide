@@ -21,7 +21,8 @@ import Foundation
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
-    case patch = "PATCH"
+    case put = "PUT"
+    case delete = "DELETE"
 }
 
 enum Resource {
@@ -31,6 +32,7 @@ enum Resource {
     case createTrip
     case getTrip
     case editTrip
+    case deleteTrip
     
     // #1
     func httpMethod() -> HTTPMethod {
@@ -40,7 +42,9 @@ enum Resource {
         case .authUser, .getTrip:
             return .get
         case .editUser, .editTrip:
-            return .patch
+            return .put
+        case .deleteTrip:
+            return .delete
         }
     }
     
@@ -65,6 +69,12 @@ enum Resource {
                     "Authorization": "Bearer \(token)",
                 "Host": "" // need api address
             ]
+        case .deleteTrip:
+            return ["Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer \(token)",
+                "Host": "" // need api address
+            ]
         }
     }
     
@@ -72,9 +82,11 @@ enum Resource {
     func path() -> String {
         switch self {
         case .createUser, .authUser, .editUser:
-            return "" // need API address for users
+            return "/users" // need API address for users
         case .createTrip, .getTrip, .editTrip:
-            return "http://localhost:3000/trips" // need API address for trips
+            return "/trips" // need API address for trips
+        case .deleteTrip:
+            return "/trips"
         }
     }
     
@@ -84,6 +96,8 @@ enum Resource {
         case .createUser, .authUser, .editUser:
             return [:]
         case .createTrip, .getTrip, .editTrip:
+            return [:]
+        case .deleteTrip:
             return [:]
         }
     }
@@ -95,6 +109,8 @@ enum Resource {
             return nil
         case .createTrip, .getTrip, .editTrip:
             return nil
+        case .deleteTrip:
+            return nil
         }
     }
 }
@@ -102,7 +118,7 @@ enum Resource {
 
 class Networking {
     let session = URLSession.shared
-    let baseURL = "" // need API address
+    let baseURL = "http://localhost:3000" // need API address
     
     func fetch(resource: Resource, completion: @escaping ([Decodable]) -> ()) {
         let fullURL = baseURL + resource.path()
@@ -130,6 +146,14 @@ class Networking {
                     print("PATCH request \(data)")
                 case .authUser, .getTrip:
                     print("GET request \(data)")
+                    
+                    let tripList = try? JSONDecoder().decode(TripsList.self, from: data)
+                    guard let trips = tripList?.trips else { return }
+                    print("do something")
+                    return completion(trips)
+                    
+                case .deleteTrip:
+                    print("DELETE request \(data)")
                 }
             }
         }.resume()

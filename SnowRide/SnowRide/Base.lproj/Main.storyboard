@@ -320,7 +320,7 @@
                         <barButtonItem key="rightBarButtonItem" title="add trip" id="H7u-GH-FYq">
                             <connections>
                                 <action selector="didPressAdd:" destination="g3B-gK-VLN" id="0zF-Qp-ILz"/>
-                                <segue destination="Awg-qY-l6L" kind="show" id="2eB-B4-Bv6"/>
+                                <segue destination="Awg-qY-l6L" kind="show" identifier="addTrip" id="2eB-B4-Bv6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

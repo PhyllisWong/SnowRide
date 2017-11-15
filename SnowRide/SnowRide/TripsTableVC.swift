@@ -3,7 +3,7 @@
 //  SnowRide
 //
 //  Created by djchai on 11/8/17.
-//  Copyright © 2017 JCSwifty. All rights reserved.
+//  Copyright © 2017 newLab. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class TripsTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View loaded")
-        self.title = "Snow Ride"
+        self.title = "Snow Ride Trips"
         
         // set the row height for the tableView large enough to display all the data
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -28,8 +28,9 @@ class TripsTableVC: UITableViewController {
         
         let networking = Networking()
         networking.fetch(resource: .getTrip) { (result) in
+            print("Networking callback")
+            
             DispatchQueue.main.async {
-                print("Networking callback")
                 guard let list = result as? [Trip] else {return}
                 self.tripsList = list
                 self.tableView.reloadData()
@@ -56,7 +57,11 @@ class TripsTableVC: UITableViewController {
         return cell
     }
     
-
+    // adjusts the height of the tableview
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

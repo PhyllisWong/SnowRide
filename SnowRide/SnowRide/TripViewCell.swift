@@ -3,7 +3,7 @@
 //  SnowRide
 //
 //  Created by djchai on 11/8/17.
-//  Copyright © 2017 JCSwifty. All rights reserved.
+//  Copyright © 2017 newLab. All rights reserved.
 //
 
 import Foundation

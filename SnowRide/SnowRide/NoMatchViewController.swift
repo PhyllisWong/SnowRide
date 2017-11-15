@@ -1,9 +1,9 @@
 //
-//  NoMatchViewController.swift
+//  UserDataModel.swift
 //  SnowRide
 //
-//  Created by Johnathan Chen on 10/25/17.
-//  Copyright © 2017 JCSwifty. All rights reserved.
+//  Created by djchai on 11/15/17.
+//  Copyright © 2017 newLab. All rights reserved.
 //
 
 import UIKit
