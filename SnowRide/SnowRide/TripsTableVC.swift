@@ -16,23 +16,27 @@ class TripsTableVC: UITableViewController {
     @IBAction func didPressAdd(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.reloadInputViews()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        print("View loaded")
+        self.title = "Snow Ride"
+        
+        // set the row height for the tableView large enough to display all the data
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = 150
+        
+        let networking = Networking()
+        networking.fetch(resource: .getTrip) { (result) in
+            DispatchQueue.main.async {
+                print("Networking callback")
+                guard let list = result as? [Trip] else {return}
+                self.tripsList = list
+                self.tableView.reloadData()
+                print("This should show some shit")
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -45,17 +49,13 @@ class TripsTableVC: UITableViewController {
         
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripViewCell", for: indexPath) as! TripViewCell
-
-        cell.returnLabel.text = tripsList[indexPath.row].returnsOn
-
+        let raw = indexPath.item
+        cell.trip = tripsList[raw]
         return cell
     }
     
-   
- 
 
     /*
     // Override to support conditional editing of the table view.

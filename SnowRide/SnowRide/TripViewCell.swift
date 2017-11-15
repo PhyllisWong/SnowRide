@@ -11,11 +11,15 @@ import UIKit
 
 class TripViewCell: UITableViewCell {
     
-    @IBOutlet weak var departLabel: UILabel!
-    @IBOutlet weak var returnLabel: UILabel!
+    @IBOutlet weak var departsOnLabel: UILabel!
+    @IBOutlet weak var returnsOnLabel: UILabel!
     @IBOutlet weak var matchedWithLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var trip: Trip? {
+        didSet {
+            departsOnLabel.text = trip?.departsOn
+            returnsOnLabel.text = trip?.returnsOn
+            matchedWithLabel.text = "no match yet"
+        }
     }
 }

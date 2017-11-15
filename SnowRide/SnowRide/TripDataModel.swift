@@ -31,11 +31,11 @@ extension Trip: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: TripKeys.self)
-        let id: String = try container.decodeIfPresent(String.self, forKey: .id) ?? "No id"
+        let tripID: String = try container.decodeIfPresent(String.self, forKey: .id) ?? "No id"
         let departsOn: String = try container.decodeIfPresent(String.self, forKey: .departsOn) ?? "No departure date"
-        let returnsOn: String = try container.decodeIfPresent(String.self, forKey: .returnsOn) ?? ""
+        let returnsOn: String = try container.decodeIfPresent(String.self, forKey: .returnsOn) ?? "No return date"
         
-        self.init(tripID: id, departsOn: departsOn, returnsOn: returnsOn)
+        self.init(tripID: tripID, departsOn: departsOn, returnsOn: returnsOn)
     }
 }
 
