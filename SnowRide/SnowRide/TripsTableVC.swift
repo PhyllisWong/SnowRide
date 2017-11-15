@@ -10,8 +10,9 @@ import UIKit
 
 class TripsTableVC: UITableViewController {
 
-    var trips = [Trip]()
+    var tripsList = [Trip]()
     
+    // code to make the add trip nav bar button go to the CreateTripVC
     @IBAction func didPressAdd(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -40,7 +41,7 @@ class TripsTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trips.count
+        return tripsList.count
         
     }
 
@@ -48,7 +49,7 @@ class TripsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripViewCell", for: indexPath) as! TripViewCell
 
-        cell.returnLabel.text = trips[indexPath.row].returnsOn
+        cell.returnLabel.text = tripsList[indexPath.row].returnsOn
 
         return cell
     }

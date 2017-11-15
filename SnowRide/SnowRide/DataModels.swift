@@ -9,13 +9,34 @@
 import Foundation
 
 
+struct TripsList: Decodable {
+    let trips: [Trip]
+}
+
+// Data structure to display in each tableViewCell
 struct Trip {
+    let tripID: String
     let departsOn: String
     let returnsOn: String
-//    let departsAt: timeval32
-    let userID: Int
-    let passenger: String?
-    let driver: String?
+}
+
+// Extend the Trip struct to convert json to swift naming convention
+extension Trip: Decodable {
+    
+    enum TripKeys: String, CodingKey {
+        case id = "_id"
+        case departsOn
+        case returnsOn
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: TripKeys.self)
+        let id: String = try container.decodeIfPresent(String.self, forKey: .id) ?? "No id"
+        let departsOn: String = try container.decodeIfPresent(String.self, forKey: .departsOn) ?? "No departure date"
+        let returnsOn: String = try container.decodeIfPresent(String.self, forKey: .returnsOn) ?? ""
+        
+        self.init(tripID: id, departsOn: departsOn, returnsOn: returnsOn)
+    }
 }
 
 struct user {
@@ -24,16 +45,7 @@ struct user {
     let phoneNum: Int //5555555555
 }
 
-//let passengerAvailability = TripDate(departureDate: "01", returnDate: "02")
-//let driverAvailability = TripDate(departureDate: "01", returnDate: "02")
 
-//func matchDates() {
-//    if passengerAvailability.departureDate ==  driverAvailability.departureDate {
-//        if passengerAvailability.returnDate == driverAvailability.returnDate {
-//            print("pass")
-//        }
-//    }
-//}
 
 
 

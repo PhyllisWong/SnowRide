@@ -74,7 +74,7 @@ enum Resource {
         case .createUser, .authUser, .editUser:
             return "" // need API address for users
         case .createTrip, .getTrip, .editTrip:
-            return "" // need API address for trips
+            return "http://localhost:3000/trips" // need API address for trips
         }
     }
     
