@@ -1,5 +1,5 @@
 //
-//  createTripVC.swift
+//  CreateTripVC.swift
 //  SnowRide
 //
 //  Created by djchai on 11/8/17.
@@ -8,24 +8,28 @@
 
 import UIKit
 
-class createTripVC: UIViewController {
+protocol CreateTripDelegate: class {
+    func didCreateTrip(trip: Trip)
+}
 
-    @IBOutlet weak var departOnTxt: UITextField!
-    @IBOutlet weak var returnOnTxt: UITextField!
+class CreateTripVC: UIViewController {
+
+    @IBOutlet weak var departsOnTxt: UITextField!
+    @IBOutlet weak var returnsOnTxt: UITextField!
     
-    let departOnDatePicker = UIDatePicker()
-    let returnOnDatePicker = UIDatePicker()
+    let departsOnDatePicker = UIDatePicker()
+    let returnsOnDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDepartOnPicker()
-        createReturnOnPicker()
+        createDepartOnsPicker()
+        createReturnOnsPicker()
     }
 
-    func createDepartOnPicker() {
+    func createDepartOnsPicker() {
         
         // format for picker
-        departOnDatePicker.datePickerMode = .date
+        departsOnDatePicker.datePickerMode = .date
         
         // toolbar
         let toolbar = UIToolbar()
@@ -35,17 +39,17 @@ class createTripVC: UIViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didPressDone))
         toolbar.setItems([doneButton], animated: false)
 
-        departOnTxt.inputAccessoryView = toolbar
+        departsOnTxt.inputAccessoryView = toolbar
         
         // assigning date picker to text field
-        departOnTxt.inputView = departOnDatePicker
+        departsOnTxt.inputView = departOnDatePicker
         
     }
     
     func createReturnOnPicker() {
         
         // format for picker
-        returnOnDatePicker.datePickerMode = .date
+        returnsOnDatePicker.datePickerMode = .date
         
         // toolbar
         let toolbar = UIToolbar()
@@ -55,10 +59,10 @@ class createTripVC: UIViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didPressDone))
         toolbar.setItems([doneButton], animated: false)
         
-        returnOnTxt.inputAccessoryView = toolbar
+        returnsOnTxt.inputAccessoryView = toolbar
         
         // assigning date picker to text field
-        returnOnTxt.inputView = returnOnDatePicker
+        returnsOnTxt.inputView = returnOnDatePicker
         
     }
     
@@ -68,10 +72,10 @@ class createTripVC: UIViewController {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         
-        if departOnTxt.isEditing {
-            departOnTxt.text = dateFormatter.string(from: departOnDatePicker.date)
-        } else if returnOnTxt.isEditing {
-            returnOnTxt.text = dateFormatter.string(from: returnOnDatePicker.date)
+        if departsOnTxt.isEditing {
+            departsOnTxt.text = dateFormatter.string(from: departOnDatePicker.date)
+        } else if returnsOnTxt.isEditing {
+            returnsOnTxt.text = dateFormatter.string(from: returnOnDatePicker.date)
         }
         self.view.endEditing(true)
     }

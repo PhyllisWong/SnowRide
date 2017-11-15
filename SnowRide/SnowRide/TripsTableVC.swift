@@ -12,6 +12,9 @@ class TripsTableVC: UITableViewController {
 
     var trips = [Trip]()
     
+    @IBAction func didPressAdd(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.reloadInputViews()
@@ -49,6 +52,8 @@ class TripsTableVC: UITableViewController {
 
         return cell
     }
+    
+   
  
 
     /*

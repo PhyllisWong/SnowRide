@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="1233" y="-831"/>
         </scene>
-        <!--PickScheduleVC-->
+        <!--CreateTripVC-->
         <scene sceneID="Y6z-hG-RS3">
             <objects>
-                <viewController storyboardIdentifier="createTripVC" title="PickScheduleVC" id="Awg-qY-l6L" customClass="createTripVC" customModule="SnowRide" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateTripVC" title="CreateTripVC" id="Awg-qY-l6L" customClass="CreateTripVC" customModule="SnowRide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YDJ-De-jXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,8 +256,8 @@
                         <viewLayoutGuide key="safeArea" id="PxQ-j0-m3w"/>
                     </view>
                     <connections>
-                        <outlet property="departOnTxt" destination="jgw-at-zZG" id="fSz-0W-M9I"/>
-                        <outlet property="returnOnTxt" destination="Yj2-x1-lNl" id="p9s-SV-gJo"/>
+                        <outlet property="departsOnTxt" destination="jgw-at-zZG" id="T32-Es-LAZ"/>
+                        <outlet property="returnsOnTxt" destination="Yj2-x1-lNl" id="Ja6-TO-NdE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeZ-SH-HLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,6 +321,7 @@
                     <navigationItem key="navigationItem" id="je0-yO-6tj">
                         <barButtonItem key="rightBarButtonItem" title="add trip" id="H7u-GH-FYq">
                             <connections>
+                                <action selector="didPressAdd:" destination="g3B-gK-VLN" id="0zF-Qp-ILz"/>
                                 <segue destination="Awg-qY-l6L" kind="show" id="2eB-B4-Bv6"/>
                             </connections>
                         </barButtonItem>

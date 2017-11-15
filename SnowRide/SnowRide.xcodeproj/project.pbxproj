@@ -15,11 +15,10 @@
 		B9AFB07D1FB5282500133D3C /* NetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFB07C1FB5282500133D3C /* NetWorking.swift */; };
 		B9B6B2201FB3A54200BDAACB /* TripViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6B21F1FB3A54200BDAACB /* TripViewCellModel.swift */; };
 		B9CBE7CA1FB29786001EEF07 /* TripViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */; };
-		B9CD54AA1FB3C08D003F7C88 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9CD54A91FB3C08D003F7C88 /* Info.plist */; };
 		B9CD54AC1FB3C0BF003F7C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */; };
 		B9CDD4941FB3C23F00F19BF5 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD4931FB3C23F00F19BF5 /* ProfileVC.swift */; };
 		B9CDD49A1FB3C47E00F19BF5 /* TripsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */; };
-		B9CDD49C1FB3C4E900F19BF5 /* createTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD49B1FB3C4E900F19BF5 /* createTripVC.swift */; };
+		B9CDD49C1FB3C4E900F19BF5 /* CreateTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */; };
 		B9D2CA271FB3BDA200001AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +36,7 @@
 		B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CDD4931FB3C23F00F19BF5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableVC.swift; sourceTree = "<group>"; };
-		B9CDD49B1FB3C4E900F19BF5 /* createTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = createTripVC.swift; path = ../createTripVC.swift; sourceTree = "<group>"; };
+		B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTripVC.swift; path = ../CreateTripVC.swift; sourceTree = "<group>"; };
 		B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +75,7 @@
 			children = (
 				B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */,
 				B96C57411FB3D02D000A5CAA /* Profile */,
-				B9CDD49B1FB3C4E900F19BF5 /* createTripVC.swift */,
+				B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */,
 				B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */,
 				B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */,
 				B9B6B21F1FB3A54200BDAACB /* TripViewCellModel.swift */,
@@ -124,8 +123,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = JCSwifty;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = newLab;
 				TargetAttributes = {
 					B83B30731FA00AB600903B24 = {
 						CreatedOnToolsVersion = 9.0;
@@ -156,7 +155,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9CD54AA1FB3C08D003F7C88 /* Info.plist in Resources */,
 				B83B30821FA00AB700903B24 /* LaunchScreen.storyboard in Resources */,
 				B9D2CA271FB3BDA200001AF7 /* Assets.xcassets in Resources */,
 				B83B307D1FA00AB600903B24 /* Main.storyboard in Resources */,
@@ -171,7 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9CBE7CA1FB29786001EEF07 /* TripViewCell.swift in Sources */,
-				B9CDD49C1FB3C4E900F19BF5 /* createTripVC.swift in Sources */,
+				B9CDD49C1FB3C4E900F19BF5 /* CreateTripVC.swift in Sources */,
 				B837847D1FA141F700E82E80 /* DataModels.swift in Sources */,
 				B9CDD4941FB3C23F00F19BF5 /* ProfileVC.swift in Sources */,
 				B83B307A1FA00AB600903B24 /* LoginVC.swift in Sources */,
