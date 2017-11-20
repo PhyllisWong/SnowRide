@@ -15,9 +15,9 @@ struct TripsList: Decodable {
 
 // Data structure to display in each tableViewCell
 struct Trip {
-    var tripID: String
-    var departsOn: String
-    var returnsOn: String
+    let tripID: String
+    let departsOn: String
+    let returnsOn: String
 }
 
 // Extend the Trip struct to convert json to swift naming convention
@@ -36,6 +36,14 @@ extension Trip: Decodable {
         let returnsOn: String = try container.decodeIfPresent(String.self, forKey: .returnsOn) ?? "No return date"
         
         self.init(tripID: tripID, departsOn: departsOn, returnsOn: returnsOn)
+    }
+}
+
+extension Trip: Encodable {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: TripKeys.self)
+        try container.encode(departsOn, forKey: TripKeys.departsOn)
+        try container.encode(returnsOn, forKey: TripKeys.returnsOn)
     }
 }
 

@@ -14,7 +14,7 @@ protocol CreateTripDelegate: class {
 
 class CreateTripVC: UIViewController {
     
-    var newTrip: [Trip] = []
+    var trip: Trip?
     
     var selectedDepartsOnDate: Trip?
     var selectedReturnsOnDate: Trip?
@@ -23,17 +23,23 @@ class CreateTripVC: UIViewController {
     // Button to send trip data to database
     @IBAction func didPressSaveTrip() {
         
-        let networking = Networking()
-        networking.fetch(resource: .createTrip) { (result) in
-            print("POST request")
-            
-            DispatchQueue.main.async {
-//                guard let list = result as? [Trip] else {return}
-               
-                print("This should show some shit")
-            }
-        }
+        guard let trip = trip else {return}
         
+        let networking = Networking()
+        
+        // POST request passing in encodable trip
+        networking.fetch(resource: .createTrip(model: trip), completion: handleNetworkResult)
+        
+    }
+    
+    func handleNetworkResult(result: TripNetworkResult) {
+        switch result {
+        case .success(_):
+            self.navigationController?.popViewController(animated: true)
+        case let .failure(message):
+            print(message)
+        }
+
     }
     
     // text fields to show the selected dates picked
@@ -110,8 +116,7 @@ class CreateTripVC: UIViewController {
         self.view.endEditing(true)
         
         let trip = Trip(tripID: "1", departsOn: departsOnTxt.text!, returnsOn: returnsOnTxt.text!)
-        newTrip.append(trip)
-        print(newTrip)
+        self.trip = trip
     }
 
     

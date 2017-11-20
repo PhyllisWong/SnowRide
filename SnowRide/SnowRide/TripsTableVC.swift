@@ -17,6 +17,26 @@ class TripsTableVC: UITableViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let networking = Networking()
+        networking.fetch(resource: .getTrip) { (result) in
+            
+            switch result {
+            case let .success(model):
+                DispatchQueue.main.async {
+                    guard let list = model as? TripsList else {return}
+                    self.tripsList = list.trips
+                    self.tableView.reloadData()
+                    print("This should show some shit")
+                }
+            case let .failure(message):
+                print(message)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View loaded")
@@ -26,17 +46,7 @@ class TripsTableVC: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.rowHeight = 150
         
-        let networking = Networking()
-        networking.fetch(resource: .getTrip) { (result) in
-            print("Networking callback")
-            
-            DispatchQueue.main.async {
-                guard let list = result as? [Trip] else {return}
-                self.tripsList = list
-                self.tableView.reloadData()
-                print("This should show some shit")
-            }
-        }
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

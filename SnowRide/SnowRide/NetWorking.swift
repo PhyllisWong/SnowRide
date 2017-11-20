@@ -26,12 +26,12 @@ enum HTTPMethod: String {
 }
 
 enum Resource {
-    case createUser
+    case createUser(model: Encodable)
     case authUser
-    case editUser
-    case createTrip
+    case editUser(model: Encodable)
+    case createTrip(model: Encodable)
     case getTrip
-    case editTrip
+    case editTrip(model: Encodable)
     case deleteTrip
     
     // #1
@@ -55,8 +55,8 @@ enum Resource {
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "Bearer \(token)",
-                    "Host": "" // need api address
-                ]
+                "Host": "" // need api address
+            ]
         case .createUser, .createTrip:
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
@@ -104,10 +104,25 @@ enum Resource {
     
     // #5
     func body() -> Data? {
+        
         switch self {
-        case .createUser, .authUser, .editUser:
+        // post requests
+        case let .createTrip(model):
+            
+            guard let trip = model as? Trip else {return nil}
+            
+            let encoder = JSONEncoder()
+            let jsonObject = try? encoder.encode(trip)
+            
+            return jsonObject
+        case .createUser:
             return nil
-        case .createTrip, .getTrip, .editTrip:
+        // get requests
+        case .authUser, .getTrip:
+            return nil
+        case .editUser:
+            return nil
+        case.editTrip:
             return nil
         case .deleteTrip:
             return nil
@@ -115,15 +130,25 @@ enum Resource {
     }
 }
 
+enum TripNetworkResult {
+    case success(data: Decodable?)
+    case failure(message: String)
+}
+
 
 class Networking {
     let session = URLSession.shared
     let baseURL = "http://localhost:3000" // need API address
     
-    func fetch(resource: Resource, completion: @escaping ([Decodable]) -> ()) {
+    func filterSuccessCode(statusCode: Int) -> Bool {
+        let range = 200...299
+        return range.contains(statusCode)
+    }
+    
+    func fetch(resource: Resource, completion: @escaping (TripNetworkResult) -> ()) {
         let fullURL = baseURL + resource.path()
         var item = NSURLQueryItem()
-       
+        
         
         let componets = NSURLComponents(string: fullURL)
         for (key, value) in resource.urlParameters() {
@@ -136,27 +161,26 @@ class Networking {
         var request = URLRequest(url: url!)
         request.allHTTPHeaderFields = resource.header(token: "") // need token
         request.httpMethod = resource.httpMethod().rawValue
+        request.httpBody = resource.body()
         
-        session.dataTask(with: request) { (data, res, err) in
-            if let data = data {
-                switch resource {
-                case .createUser, .createTrip:
-                    print("POST request \(data)")
-                case .editUser, .editTrip:
-                    print("PATCH request \(data)")
-                case .authUser, .getTrip:
-                    print("GET request \(data)")
-                    
-                    let tripList = try? JSONDecoder().decode(TripsList.self, from: data)
-                    guard let trips = tripList?.trips else { return }
-                    print("do something")
-                    return completion(trips)
-                    
-                case .deleteTrip:
-                    print("DELETE request \(data)")
-                }
+        session.dataTask(with: request) { (data, response, err) in
+            
+            guard let response = response as? HTTPURLResponse, self.filterSuccessCode(statusCode: response.statusCode) == true else { return completion(TripNetworkResult.failure(message: "Was not succesful")) }
+            
+            // Successful response
+            switch resource {
+            case .createUser, .createTrip, .deleteTrip:
+                return completion(TripNetworkResult.success(data: nil))
+            case .editUser, .editTrip:
+                return completion(TripNetworkResult.success(data: nil))
+            case .authUser, .getTrip:
+                guard let data = data, let tripList = try? JSONDecoder().decode(TripsList.self, from: data)
+                    else {return completion(TripNetworkResult.failure(message: "Could not decode model"))}
+                
+                return completion(TripNetworkResult.success(data: tripList))
             }
-        }.resume()
+            
+            }.resume()
     }
 }
 
