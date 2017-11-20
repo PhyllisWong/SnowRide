@@ -15,9 +15,9 @@ struct TripsList: Decodable {
 
 // Data structure to display in each tableViewCell
 struct Trip {
-    let tripID: String
-    let departsOn: String
-    let returnsOn: String
+    var tripID: String
+    var departsOn: String
+    var returnsOn: String
 }
 
 // Extend the Trip struct to convert json to swift naming convention

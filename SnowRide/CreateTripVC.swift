@@ -14,17 +14,22 @@ protocol CreateTripDelegate: class {
 
 class CreateTripVC: UIViewController {
     
-    let newTrip: [Trip] = []
+    var newTrip: [Trip] = []
     
     var selectedDepartsOnDate: Trip?
     var selectedReturnsOnDate: Trip?
     weak var delegate: CreateTripDelegate? = nil
     
+    // Button to send trip data to database
+    @IBAction func didPressSaveTrip() {
+        
+    }
     
-
+    // text fields to show the selected dates picked
     @IBOutlet weak var departsOnTxt: UITextField!
     @IBOutlet weak var returnsOnTxt: UITextField!
     
+    // Date pickers show when user presses the text field
     let departsOnDatePicker = UIDatePicker()
     let returnsOnDatePicker = UIDatePicker()
     
@@ -51,7 +56,6 @@ class CreateTripVC: UIViewController {
         
         // assigning date picker to text field
         departsOnTxt.inputView = departsOnDatePicker
-        
     }
     
     func createReturnOnPicker() {
@@ -79,13 +83,24 @@ class CreateTripVC: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
+       
         
         if departsOnTxt.isEditing {
             departsOnTxt.text = dateFormatter.string(from: departsOnDatePicker.date)
+//            trip.departsOn = departsOnTxt.text!
+//            print("Departs on text: \(departsOnTxt.text!)")
+            
         } else if returnsOnTxt.isEditing {
             returnsOnTxt.text = dateFormatter.string(from: returnsOnDatePicker.date)
+//            trip.returnsOn = returnsOnTxt.text!
+//            print("Returns on text: \(returnsOnTxt.text!)")
         }
+//        trip.tripID = "1"
         self.view.endEditing(true)
+        
+        let trip = Trip(tripID: "1", departsOn: departsOnTxt.text!, returnsOn: returnsOnTxt.text!)
+        newTrip.append(trip)
+        print(newTrip)
     }
 
     
@@ -93,7 +108,7 @@ class CreateTripVC: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tripsVC = segue.destination as? TripsTableVC
+        _ = segue.destination as? TripsTableVC
         
         // Pass the selected object to the new view controller.
     }

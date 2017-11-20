@@ -195,12 +195,12 @@
         <!--CreateTripVC-->
         <scene sceneID="Y6z-hG-RS3">
             <objects>
-                <viewController storyboardIdentifier="CreateTripVC" title="CreateTripVC" id="Awg-qY-l6L" customClass="CreateTripVC" customModule="SnowRide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateTripVC" title="CreateTripVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Awg-qY-l6L" customClass="CreateTripVC" customModule="SnowRide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YDJ-De-jXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-jZ-d9Z">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="didPressSave" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-jZ-d9Z" userLabel="SAVETRIP">
                                 <rect key="frame" x="14" y="505" width="345" height="50"/>
                                 <color key="backgroundColor" red="0.1130518839" green="0.1049865261" blue="0.26296675209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -208,7 +208,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                 <color key="tintColor" red="0.98031669860000004" green="0.97607129810000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="SEE TRIPS"/>
+                                <state key="normal" title="SAVE TRIP"/>
+                                <connections>
+                                    <action selector="didPressSaveTrip" destination="Awg-qY-l6L" eventType="touchUpInside" id="If9-WC-NUf"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="DepartOnTxt" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="choose departure date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgw-at-zZG" userLabel="DepartOnTxt">
                                 <rect key="frame" x="16" y="152" width="343" height="30"/>
