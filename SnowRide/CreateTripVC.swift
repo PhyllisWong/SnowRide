@@ -23,6 +23,17 @@ class CreateTripVC: UIViewController {
     // Button to send trip data to database
     @IBAction func didPressSaveTrip() {
         
+        let networking = Networking()
+        networking.fetch(resource: .createTrip) { (result) in
+            print("POST request")
+            
+            DispatchQueue.main.async {
+//                guard let list = result as? [Trip] else {return}
+               
+                print("This should show some shit")
+            }
+        }
+        
     }
     
     // text fields to show the selected dates picked
