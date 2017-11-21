@@ -15,10 +15,30 @@ struct TripsList: Decodable {
 
 // Data structure to display in each tableViewCell
 struct Trip {
-    let tripID: String
-    let departsOn: String
-    let returnsOn: String
+//    let tripID: String
+    var departsOn: String //{
+//        get {
+//            let formatter = DateFormatter()
+//            formatter.dateStyle = .long
+//            formatter.timeStyle = .none
+//            return formatter.string(from: self.departsOnDate)
+//        }
+//    }
+    
+//    let departsOnDate: Date
+    
+    var returnsOn: String //{
+//        get {
+//            let formatter = DateFormatter()
+//            formatter.dateStyle = .long
+//            formatter.timeStyle = .none
+//            return formatter.string(from: self.returnsOnDate)
+//        }
+//    }
+    
+//    let returnsOnDate: Date
 }
+
 
 // Extend the Trip struct to convert json to swift naming convention
 extension Trip: Decodable {
@@ -31,11 +51,16 @@ extension Trip: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: TripKeys.self)
-        let tripID: String = try container.decodeIfPresent(String.self, forKey: .id) ?? "No id"
+//        let tripID: String = try container.decodeIfPresent(String.self, forKey: .id) ?? "No id"
+        
+//         remove since these are handled with the getter
         let departsOn: String = try container.decodeIfPresent(String.self, forKey: .departsOn) ?? "No departure date"
         let returnsOn: String = try container.decodeIfPresent(String.self, forKey: .returnsOn) ?? "No return date"
+//        
+//        let departsOnDate: Date = try container.decode(Date.self, forKey: .departsOn)
+//        let returnsOnDate: Date = try container.decode(Date.self, forKey: .returnsOn)
         
-        self.init(tripID: tripID, departsOn: departsOn, returnsOn: returnsOn)
+        self.init(departsOn: departsOn, /*departsOnDate: departsOnDate,*/ returnsOn: returnsOn /*returnsOnDate: returnsOnDate*/)
     }
 }
 

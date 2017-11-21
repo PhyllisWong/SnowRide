@@ -98,24 +98,23 @@ class CreateTripVC: UIViewController {
     @objc func didPressDone() {
         // format date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
-       
         
         if departsOnTxt.isEditing {
             departsOnTxt.text = dateFormatter.string(from: departsOnDatePicker.date)
 //            trip.departsOn = departsOnTxt.text!
-//            print("Departs on text: \(departsOnTxt.text!)")
+            print("Departs on text: \(departsOnTxt.text!)")
             
         } else if returnsOnTxt.isEditing {
             returnsOnTxt.text = dateFormatter.string(from: returnsOnDatePicker.date)
 //            trip.returnsOn = returnsOnTxt.text!
-//            print("Returns on text: \(returnsOnTxt.text!)")
+            print("Returns on text: \(returnsOnTxt.text!)")
         }
 //        trip.tripID = "1"
         self.view.endEditing(true)
         
-        let trip = Trip(tripID: "1", departsOn: departsOnTxt.text!, returnsOn: returnsOnTxt.text!)
+        let trip = Trip(departsOn: departsOnTxt.text!, /*departsOnDate: departsOnDatePicker.date,*/ returnsOn: returnsOnTxt.text! /*,returnsOnDate: returnsOnDatePicker.date*/)
         self.trip = trip
     }
 

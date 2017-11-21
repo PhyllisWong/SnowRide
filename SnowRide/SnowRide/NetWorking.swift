@@ -164,7 +164,7 @@ class Networking {
         request.httpBody = resource.body()
         
         session.dataTask(with: request) { (data, response, err) in
-            
+            //
             guard let response = response as? HTTPURLResponse, self.filterSuccessCode(statusCode: response.statusCode) == true else { return completion(TripNetworkResult.failure(message: "Was not succesful")) }
             
             // Successful response

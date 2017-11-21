@@ -56,6 +56,7 @@
 			children = (
 				B83B30761FA00AB600903B24 /* SnowRide */,
 				B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */,
+				B83B30801FA00AB700903B24 /* LaunchScreen.storyboard */,
 				B9CD54A91FB3C08D003F7C88 /* Info.plist */,
 				B9AFB07C1FB5282500133D3C /* NetWorking.swift */,
 				B83B30751FA00AB600903B24 /* Products */,
@@ -82,7 +83,6 @@
 				B911AA301FBCF35A006FD1C9 /* UserDataModel.swift */,
 				B837847A1FA13C7100E82E80 /* NoMatchViewController.swift */,
 				B83B307B1FA00AB600903B24 /* Main.storyboard */,
-				B83B30801FA00AB700903B24 /* LaunchScreen.storyboard */,
 			);
 			path = SnowRide;
 			sourceTree = "<group>";
