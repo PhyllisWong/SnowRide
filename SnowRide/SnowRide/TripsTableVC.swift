@@ -79,6 +79,23 @@ class TripsTableVC: UITableViewController {
             self.tripsList.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             
+            // Add HTML DELETE request
+            
+            let networking = Networking()
+            networking.fetch(resource: .deleteTrip) { (result) in
+                
+                switch result {
+                case let .success(model):
+                    DispatchQueue.main.async {
+                        guard let list = model as? TripsList else {return}
+                        self.tripsList = list.trips
+                        self.tableView.reloadData()
+                    }
+                case let .failure(message):
+                    print(message)
+                }
+            }
+            
         }    
     }
     

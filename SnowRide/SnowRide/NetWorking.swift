@@ -115,6 +115,7 @@ enum Resource {
             let jsonObject = try? encoder.encode(trip)
             
             return jsonObject
+            
         case .createUser:
             return nil
         // get requests
@@ -179,8 +180,7 @@ class Networking {
                 
                 return completion(TripNetworkResult.success(data: tripList))
             }
-            
-            }.resume()
+        }.resume()
     }
 }
 
