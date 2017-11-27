@@ -105,17 +105,19 @@ class CreateTripVC: UIViewController {
         
         if departsOnTxt.isEditing {
             departsOnTxt.text = dateFormatter.string(from: departsOnDatePicker.date)
+            // show date as unix timestamp
             let departsOnTimeStamp = self.departsOnDatePicker.date.timeIntervalSince1970
 //            trip.departsOn = departsOnTxt.text!
             print("Departs on text: \(departsOnTxt.text!)")
-            print(departsOnTimeStamp)
+            print("UNIX timestamp: \(departsOnTimeStamp)")
             
         } else if returnsOnTxt.isEditing {
             returnsOnTxt.text = dateFormatter.string(from: returnsOnDatePicker.date)
+            // show date as unix timestamp
             let returnsOnTimeStamp = self.returnsOnDatePicker.date.timeIntervalSince1970
 //            trip.returnsOn = returnsOnTxt.text!
             print("Returns on text: \(returnsOnTxt.text!)")
-            print(returnsOnTimeStamp)
+            print("UNIX timestamp: \(returnsOnTimeStamp)")
         }
 //        trip.tripID = "1"
         self.view.endEditing(true)
