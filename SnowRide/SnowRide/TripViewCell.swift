@@ -17,8 +17,8 @@ class TripViewCell: UITableViewCell {
     
     var trip: Trip? {
         didSet {
-            departsOnLabel.text =  "departure: \(trip?.departsOn ?? "")"
-            returnsOnLabel.text = "return: \(trip?.returnsOn ?? "")"
+            departsOnLabel.text =  "\(trip?.departsOn ?? "")"
+            returnsOnLabel.text = "\(trip?.returnsOn ?? "")"
             matchedWithLabel.text = "match:"
         }
     }

@@ -44,7 +44,7 @@ class TripsTableVC: UITableViewController {
         
         // set the row height for the tableView large enough to display all the data
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.rowHeight = 150
+        self.tableView.rowHeight = 120
         
 
     }
