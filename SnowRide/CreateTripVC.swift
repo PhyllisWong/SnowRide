@@ -101,15 +101,21 @@ class CreateTripVC: UIViewController {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         
+        
+        
         if departsOnTxt.isEditing {
             departsOnTxt.text = dateFormatter.string(from: departsOnDatePicker.date)
+            let departsOnTimeStamp = self.departsOnDatePicker.date.timeIntervalSince1970
 //            trip.departsOn = departsOnTxt.text!
             print("Departs on text: \(departsOnTxt.text!)")
+            print(departsOnTimeStamp)
             
         } else if returnsOnTxt.isEditing {
             returnsOnTxt.text = dateFormatter.string(from: returnsOnDatePicker.date)
+            let returnsOnTimeStamp = self.returnsOnDatePicker.date.timeIntervalSince1970
 //            trip.returnsOn = returnsOnTxt.text!
             print("Returns on text: \(returnsOnTxt.text!)")
+            print(returnsOnTimeStamp)
         }
 //        trip.tripID = "1"
         self.view.endEditing(true)
