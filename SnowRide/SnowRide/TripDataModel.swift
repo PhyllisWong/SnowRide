@@ -15,7 +15,7 @@ struct TripsList: Decodable {
 
 // Data structure to display in each tableViewCell
 struct Trip {
-//    let tripID: String
+    let id: String
     var departsOn: String //{
 //        get {
 //            let formatter = DateFormatter()
@@ -51,7 +51,7 @@ extension Trip: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: TripKeys.self)
-//        let tripID: String = try container.decodeIfPresent(String.self, forKey: .id) ?? "No id"
+        let tripID: String = try container.decode(String.self, forKey: .id)
         
 //         remove since these are handled with the getter
         let departsOn: String = try container.decodeIfPresent(String.self, forKey: .departsOn) ?? "No departure date"
@@ -60,7 +60,7 @@ extension Trip: Decodable {
 //        let departsOnDate: Date = try container.decode(Date.self, forKey: .departsOn)
 //        let returnsOnDate: Date = try container.decode(Date.self, forKey: .returnsOn)
         
-        self.init(departsOn: departsOn, /*departsOnDate: departsOnDate,*/ returnsOn: returnsOn /*returnsOnDate: returnsOnDate*/)
+        self.init(id: tripID, departsOn: departsOn, /*departsOnDate: departsOnDate,*/ returnsOn: returnsOn)
     }
 }
 

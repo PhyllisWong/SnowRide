@@ -29,10 +29,10 @@ enum Resource {
     case createUser(model: Encodable)
     case authUser
     case editUser(model: Encodable)
-    case createTrip(model: Encodable)
+    case createTrip(departsOn: String, returnsOn: String)
     case getTrip
     case editTrip(model: Encodable)
-    case deleteTrip
+    case deleteTrip(tripID: String)
     
     // #1
     func httpMethod() -> HTTPMethod {
@@ -84,9 +84,9 @@ enum Resource {
         case .createUser, .authUser, .editUser:
             return "/users" // need API address for users
         case .createTrip, .getTrip, .editTrip:
-            return "/trips" // need API address for trips
-        case .deleteTrip:
             return "/trips"
+        case let .deleteTrip(tripID):
+            return "/trips/\(tripID)"
         }
     }
     
@@ -107,12 +107,14 @@ enum Resource {
         
         switch self {
         // post requests
-        case let .createTrip(model):
+        case let .createTrip(departsOn, returnsOn):
             
-            guard let trip = model as? Trip else {return nil}
+            let tripBody = ["departsOn": departsOn, "returnsOn": returnsOn]
             
-            let encoder = JSONEncoder()
-            let jsonObject = try? encoder.encode(trip)
+            let jsonObject = try? JSONSerialization.data(
+                withJSONObject: tripBody,
+                options: JSONSerialization.WritingOptions.sortedKeys
+            )
             
             return jsonObject
             
@@ -166,7 +168,8 @@ class Networking {
         
         session.dataTask(with: request) { (data, response, err) in
             //
-            guard let response = response as? HTTPURLResponse, self.filterSuccessCode(statusCode: response.statusCode) == true else { return completion(TripNetworkResult.failure(message: "Was not succesful")) }
+            guard let response = response as? HTTPURLResponse, self.filterSuccessCode(statusCode: response.statusCode) == true else { return completion(TripNetworkResult.failure(message:
+                "Was not succesful")) }
             
             // Successful response
             switch resource {

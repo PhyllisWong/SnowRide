@@ -20,6 +20,7 @@ class TripsTableVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // http GET request
         let networking = Networking()
         networking.fetch(resource: .getTrip) { (result) in
             
@@ -29,7 +30,6 @@ class TripsTableVC: UITableViewController {
                     guard let list = model as? TripsList else {return}
                     self.tripsList = list.trips
                     self.tableView.reloadData()
-//                    print("This should show some shit")
                 }
             case let .failure(message):
                 print(message)
@@ -39,23 +39,20 @@ class TripsTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("View loaded")
         self.title = "Snow Ride Trips"
         
         // set the row height for the tableView large enough to display all the data
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.rowHeight = 120
-        
-
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        // Return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        // Return the number of rows
         return tripsList.count
         
     }
@@ -72,17 +69,18 @@ class TripsTableVC: UITableViewController {
         return UITableViewAutomaticDimension
     }
 
-    // Override to support deleting a row the table view.
+    // Deleting a row the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let deleteTrip = tripsList[indexPath.row]
+            
             self.tripsList.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             
-            // Add HTML DELETE request
-            
+            // http DELETE request
             let networking = Networking()
-            networking.fetch(resource: .deleteTrip) { (result) in
+            networking.fetch(resource: .deleteTrip(tripID: deleteTrip.id)) { (result) in
                 
                 switch result {
                 case let .success(model):

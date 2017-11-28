@@ -12,12 +12,14 @@ protocol CreateTripDelegate: class {
     func didCreateTrip(trip: Trip)
 }
 
+typealias TripParams = (departsOn: String, returnsOn: String)
+
 class CreateTripVC: UIViewController {
     
-    var trip: Trip?
+    var trip: TripParams?
     
-    var selectedDepartsOnDate: Trip?
-    var selectedReturnsOnDate: Trip?
+    var selectedDepartsOnDate: TripParams?
+    var selectedReturnsOnDate: TripParams?
     weak var delegate: CreateTripDelegate? = nil
     
     // Button to send trip data to database
@@ -28,7 +30,7 @@ class CreateTripVC: UIViewController {
         let networking = Networking()
         
         // POST request passing in encodable trip
-        networking.fetch(resource: .createTrip(model: trip), completion: handleNetworkResult)
+        networking.fetch(resource: .createTrip(departsOn: trip.departsOn, returnsOn: trip.returnsOn), completion: handleNetworkResult)
         
     }
     
@@ -100,9 +102,7 @@ class CreateTripVC: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
-        
-        
-        
+
         if departsOnTxt.isEditing {
             departsOnTxt.text = dateFormatter.string(from: departsOnDatePicker.date)
             // show date as unix timestamp
@@ -122,7 +122,11 @@ class CreateTripVC: UIViewController {
 //        trip.tripID = "1"
         self.view.endEditing(true)
         
-        let trip = Trip(departsOn: departsOnTxt.text!, /*departsOnDate: departsOnDatePicker.date,*/ returnsOn: returnsOnTxt.text! /*,returnsOnDate: returnsOnDatePicker.date*/)
+        let trip = TripParams(
+            departsOn: departsOnTxt.text!, /*departsOnDate: departsOnDatePicker.date,*/
+            returnsOn: returnsOnTxt.text! /*,returnsOnDate: returnsOnDatePicker.date*/
+        )
+        
         self.trip = trip
     }
 
