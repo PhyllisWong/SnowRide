@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct user {
+    let user: String // name
+    let email: String // "phyllis@gmail.com"
+    let phoneNum: Int //5555555555
+}

@@ -72,11 +72,6 @@ extension Trip: Encodable {
     }
 }
 
-struct user {
-    let user: String
-    let userID: Int
-    let phoneNum: Int //5555555555
-}
 
 
 

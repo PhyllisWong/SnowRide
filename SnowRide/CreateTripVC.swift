@@ -37,7 +37,10 @@ class CreateTripVC: UIViewController {
     func handleNetworkResult(result: TripNetworkResult) {
         switch result {
         case .success(_):
-            self.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
         case let .failure(message):
             print(message)
         }

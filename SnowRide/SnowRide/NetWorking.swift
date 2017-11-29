@@ -55,25 +55,25 @@ enum Resource {
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "Bearer \(token)",
-                "Host": "" // need api address
+                    "Host": "" // need api address
             ]
         case .createUser, .createTrip:
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "Bearer \(token)",
-                "Host": "" // need api address
+                    "Host": "" // need api address
             ]
         case .editUser, .editTrip:
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "Bearer \(token)",
-                "Host": "" // need api address
+                    "Host": "" // need api address
             ]
         case .deleteTrip:
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "Bearer \(token)",
-                "Host": "" // need api address
+                    "Host": "" // need api address
             ]
         }
     }

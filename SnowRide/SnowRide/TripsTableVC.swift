@@ -75,13 +75,17 @@ class TripsTableVC: UITableViewController {
             // Delete the row from the data source
             let deleteTrip = tripsList[indexPath.row]
             
+            // Delete data from the array of Trips
             self.tripsList.remove(at: indexPath.row)
+            //Delete the row from the tableview
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             
-            // http DELETE request
+            // http DELETE request to remove from the database
             let networking = Networking()
             networking.fetch(resource: .deleteTrip(tripID: deleteTrip.id)) { (result) in
                 
+                // Reloads tableview data if successful
+                // prints failure message if unsuccessful
                 switch result {
                 case let .success(model):
                     DispatchQueue.main.async {
