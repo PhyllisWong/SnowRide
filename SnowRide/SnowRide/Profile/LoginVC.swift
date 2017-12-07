@@ -13,41 +13,46 @@ class LoginVC: UIViewController  {
     //variables
 
     
-    //outlets
-
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var phonenum: UITextField!
     
+    //outlets
+    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var phoneTF: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        matchDates()
-
+        self.usernameTF.delegate = (self as? UITextFieldDelegate)
+        self.phoneTF.delegate = (self as! UITextFieldDelegate)
     }
     
     
     //actions
-    @IBAction func login(_ sender: Any) {
+
+    
+    @IBAction func loginButton(_ sender: Any) {
+        
     }
     
-    @IBAction func register(_ sender: Any) {
+    @IBAction func signupButton(_ sender: Any) {
+        
     }
     
-    @IBAction func login_or_register(_ sender: Any) {
+    // hide the keyboard when user touches outside the keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     //func
-    func login(){
-        guard let email = email.text else {
-            print("email issue")
-            return
-        }
-        guard let phonenum = phonenum.text else{
-            print("invalid phone number entry")
-            return
-        }
+//    func login(){
+//        guard let email = email.text else {
+//            print("email issue")
+//            return
+//        }
+//        guard let phonenum = phonenum.text else{
+//            print("invalid phone number entry")
+//            return
+//        }
 //        Auth.auth().signIn(withEmail: email, password: phonenum, completion: { (user, err) in
 //                if err != nil{
 //                    print("not signed in")
@@ -59,38 +64,16 @@ class LoginVC: UIViewController  {
 //        })
     }
     
-    func signup(){
-        guard let username = username.text else{
-            print("username issue")
-            return
-        }
-        guard let email = email.text else{
-            print("email issue")
-            return
-        }
-        guard let phonenum = phonenum.text else{
-            print("phonenum issue")
-            return
-        }
-//        Auth.auth().createUser(withEmail: email, password: phonenum, completion: { (user, err) in
-//            if err != nil { print(err!); return }
-//
-//            guard let id = user?.uid else{ return }
-//
-//            let userReference = self.databaseRef.child("users").child(id)
-//            let values = ["username": username, "email": email, "pic":""]
-//
-//            userReference.updateChildValues(values
-//                , withCompletionBlock: { (error, ref) in
-//                    if error != nil{
-//                        print(error!)
-//                        return
-//                    }
-//                    self.dismiss(animated: true, completion: nil)
-//            })
-//
-//        })
+    func signup(username: usernameTF.text, phone: phoneTF.text) {
+        guard let username = username else { return }
+        guard let phone = phone else { return }
+        
+        let user = User(username: username, phone: phone)
+        
+        let networking = Networking()
+        
+        networking.fetch(resource: <#T##Resource#>, completion: <#T##(TripNetworkResult) -> ()#>)
         
     }
-}
+
 
