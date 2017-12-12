@@ -2,7 +2,7 @@
 //  TripsTableVC.swift
 //  SnowRide
 //
-//  Created by djchai on 11/8/17.
+//  Created by Phyllis Wong on 11/8/17.
 //  Copyright © 2017 newLab. All rights reserved.
 //
 

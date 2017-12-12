@@ -2,7 +2,7 @@
 //  TripViewCell.swift
 //  SnowRide
 //
-//  Created by djchai on 11/8/17.
+//  Created by Phyllis Wong on 11/8/17.
 //  Copyright © 2017 newLab. All rights reserved.
 //
 
@@ -17,8 +17,8 @@ class TripViewCell: UITableViewCell {
     
     var trip: Trip? {
         didSet {
-            departsOnLabel.text =  "\(trip?.departsOn ?? "")"
-            returnsOnLabel.text = "\(trip?.returnsOn ?? "")"
+            departsOnLabel.text =  "\(trip?.departsOn.description ?? Date().description)"
+            returnsOnLabel.text = "\(trip?.returnsOn.description ?? Date().description)"
             matchedWithLabel.text = "match:"
         }
     }

@@ -2,7 +2,7 @@
 //  NetWorking.swift
 //  product-hunt
 //
-//  Created by djchai on 11/1/17.
+//  Created by Phyllis Wong on 11/1/17.
 //  Copyright © 2017 Phyllis Wong. All rights reserved.
 //
 
@@ -109,14 +109,13 @@ enum Resource {
         // post requests
         case let .createTrip(departsOn, returnsOn):
             
-            let tripBody = ["departsOn": departsOn, "returnsOn": returnsOn]
-            
-            let jsonObject = try? JSONSerialization.data(
-                withJSONObject: tripBody,
-                options: JSONSerialization.WritingOptions.sortedKeys
-            )
-            
-            return jsonObject
+            let trip = Trip(id: "", departsOn: departsOn, returnsOn: returnsOn)
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .millisecondsSince1970
+            print(trip)
+            // jsonObject with date encoded to UNIX timestamp
+            let data = try? encoder.encode(trip)
+            return data
             
         case .createUser:
             return nil
@@ -169,7 +168,8 @@ class Networking {
         session.dataTask(with: request) { (data, response, err) in
             //
             guard let response = response as? HTTPURLResponse, self.filterSuccessCode(statusCode: response.statusCode) == true else { return completion(TripNetworkResult.failure(message:
-                "Was not succesful")) }
+                "Was not succesful"))
+            }
             
             // Successful response
             switch resource {
@@ -178,7 +178,9 @@ class Networking {
             case .editUser, .editTrip:
                 return completion(TripNetworkResult.success(data: nil))
             case .authUser, .getTrip:
-                guard let data = data, let tripList = try? JSONDecoder().decode(TripsList.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                guard let data = data, let tripList = try? decoder.decode(TripsList.self, from: data)
                     else {return completion(TripNetworkResult.failure(message: "Could not decode model"))}
                 
                 return completion(TripNetworkResult.success(data: tripList))

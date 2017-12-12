@@ -2,7 +2,7 @@
 //  TripsTableVC.swift
 //  SnowRide
 //
-//  Created by djchai on 11/8/17.
+//  Created by Phyllis Wong on 11/8/17.
 //  Copyright © 2017 newLab. All rights reserved.
 //
 
@@ -24,7 +24,6 @@ class CreateTripVC: UIViewController {
     
     // Button to send trip data to database
     @IBAction func didPressSaveTrip() {
-        
         guard let trip = trip else {return}
         
         let networking = Networking()
@@ -126,8 +125,8 @@ class CreateTripVC: UIViewController {
         self.view.endEditing(true)
         
         let trip = TripParams(
-            departsOn: departsOnTxt.text!, /*departsOnDate: departsOnDatePicker.date,*/
-            returnsOn: returnsOnTxt.text! /*,returnsOnDate: returnsOnDatePicker.date*/
+            departsOn: departsOnTxt.text!,
+            returnsOn: returnsOnTxt.text!
         )
         
         self.trip = trip
@@ -142,6 +141,4 @@ class CreateTripVC: UIViewController {
         
         // Pass the selected object to the new view controller.
     }
- 
-
 }

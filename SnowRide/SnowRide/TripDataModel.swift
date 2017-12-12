@@ -2,7 +2,7 @@
 //  TripsTableVC.swift
 //  SnowRide
 //
-//  Created by djchai on 11/8/17.
+//  Created by Phyllis Wong on 11/8/17.
 //  Copyright © 2017 newLab. All rights reserved.
 //
 
@@ -53,14 +53,20 @@ extension Trip: Decodable {
         let container = try decoder.container(keyedBy: TripKeys.self)
         let tripID: String = try container.decode(String.self, forKey: .id)
         
-//         remove since these are handled with the getter
-        let departsOn: String = try container.decodeIfPresent(String.self, forKey: .departsOn) ?? "No departure date"
-        let returnsOn: String = try container.decodeIfPresent(String.self, forKey: .returnsOn) ?? "No return date"
-//        
-//        let departsOnDate: Date = try container.decode(Date.self, forKey: .departsOn)
-//        let returnsOnDate: Date = try container.decode(Date.self, forKey: .returnsOn)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
         
-        self.init(id: tripID, departsOn: departsOn, /*departsOnDate: departsOnDate,*/ returnsOn: returnsOn)
+        let departsOn: String = try container.decode(String.self, forKey: .departsOn)
+        let returnsOn: String = try container.decode(String.self, forKey: .returnsOn)
+        
+        let formatter = ISO8601DateFormatter()
+        
+        let departsOnDate = formatter.date(from: departsOn) ?? Date()
+        let returnsOnDate = formatter.date(from: returnsOn) ?? Date()
+        
+        let departsOnString = dateFormatter.string(from: departsOnDate)
+        let returnsOnString = dateFormatter.string(from: returnsOnDate)
+        self.init(id: tripID, departsOn: departsOnString, returnsOn: returnsOnString)
     }
 }
 
