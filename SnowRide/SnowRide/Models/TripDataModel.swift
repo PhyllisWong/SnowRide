@@ -58,15 +58,20 @@ extension Trip: Decodable {
         
         let departsOn: String = try container.decode(String.self, forKey: .departsOn)
         let returnsOn: String = try container.decode(String.self, forKey: .returnsOn)
+        let splitDepartsOn = departsOn.split(separator: "T")
+        print(String(splitDepartsOn[0]))
+        let splitReturnsOn = returnsOn.split(separator: "T")
+        
         
         let formatter = ISO8601DateFormatter()
         
-        let departsOnDate = formatter.date(from: departsOn) ?? Date()
-        let returnsOnDate = formatter.date(from: returnsOn) ?? Date()
+//        let departsOnDate = formatter.date(from: departsOn) ?? Date()
+//        let returnsOnDate = formatter.date(from: returnsOn) ?? Date()
         
-        let departsOnString = dateFormatter.string(from: departsOnDate)
-        let returnsOnString = dateFormatter.string(from: returnsOnDate)
-        self.init(id: tripID, departsOn: departsOnString, returnsOn: returnsOnString)
+//        let departsOnString = dateFormatter.string(from: departsOnDate)
+//        let returnsOnString = dateFormatter.string(from: returnsOnDate)
+        
+        self.init(id: tripID, departsOn: String(splitDepartsOn[0]), returnsOn: String(splitReturnsOn[0]))
     }
 }
 

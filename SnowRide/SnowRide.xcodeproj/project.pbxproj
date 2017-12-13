@@ -13,6 +13,7 @@
 		B83B307D1FA00AB600903B24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83B307B1FA00AB600903B24 /* Main.storyboard */; };
 		B83B30821FA00AB700903B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83B30801FA00AB700903B24 /* LaunchScreen.storyboard */; };
 		B911AA311FBCF35A006FD1C9 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B911AA301FBCF35A006FD1C9 /* UserDataModel.swift */; };
+		B9848D771FE0A3FC00B65C28 /* TripDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9848D761FE0A3FC00B65C28 /* TripDetailVC.swift */; };
 		B9AFB07D1FB5282500133D3C /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFB07C1FB5282500133D3C /* Networking.swift */; };
 		B9CBE7CA1FB29786001EEF07 /* TripViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */; };
 		B9CD54AC1FB3C0BF003F7C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */; };
@@ -30,13 +31,14 @@
 		B83B307C1FA00AB600903B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B83B30811FA00AB700903B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B911AA301FBCF35A006FD1C9 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
-		B9AFB07C1FB5282500133D3C /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = SnowRide/Networking.swift; sourceTree = "<group>"; };
+		B9848D761FE0A3FC00B65C28 /* TripDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailVC.swift; sourceTree = "<group>"; };
+		B9AFB07C1FB5282500133D3C /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewCell.swift; sourceTree = "<group>"; };
 		B9CD54A91FB3C08D003F7C88 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CDD4931FB3C23F00F19BF5 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableVC.swift; sourceTree = "<group>"; };
-		B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTripVC.swift; path = ../CreateTripVC.swift; sourceTree = "<group>"; };
+		B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripVC.swift; sourceTree = "<group>"; };
 		B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +60,6 @@
 				B9D2CA261FB3BDA200001AF7 /* Assets.xcassets */,
 				B83B30801FA00AB700903B24 /* LaunchScreen.storyboard */,
 				B9CD54A91FB3C08D003F7C88 /* Info.plist */,
-				B9AFB07C1FB5282500133D3C /* Networking.swift */,
 				B83B30751FA00AB600903B24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,25 +76,43 @@
 			isa = PBXGroup;
 			children = (
 				B9CD54AB1FB3C0BF003F7C88 /* AppDelegate.swift */,
-				B96C57411FB3D02D000A5CAA /* Profile */,
-				B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */,
-				B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */,
-				B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */,
-				B837847C1FA141F700E82E80 /* TripDataModel.swift */,
-				B911AA301FBCF35A006FD1C9 /* UserDataModel.swift */,
+				B9848D751FE0A3CE00B65C28 /* Controllers */,
+				B96C57411FB3D02D000A5CAA /* Views */,
+				B9848D741FE0A39800B65C28 /* Models */,
 				B837847A1FA13C7100E82E80 /* NoMatchViewController.swift */,
 				B83B307B1FA00AB600903B24 /* Main.storyboard */,
 			);
 			path = SnowRide;
 			sourceTree = "<group>";
 		};
-		B96C57411FB3D02D000A5CAA /* Profile */ = {
+		B96C57411FB3D02D000A5CAA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9CBE7C91FB29786001EEF07 /* TripViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B9848D741FE0A39800B65C28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B837847C1FA141F700E82E80 /* TripDataModel.swift */,
+				B911AA301FBCF35A006FD1C9 /* UserDataModel.swift */,
+				B9AFB07C1FB5282500133D3C /* Networking.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B9848D751FE0A3CE00B65C28 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B83B30791FA00AB600903B24 /* LoginVC.swift */,
 				B9CDD4931FB3C23F00F19BF5 /* ProfileVC.swift */,
+				B9CDD4991FB3C47E00F19BF5 /* TripsTableVC.swift */,
+				B9CDD49B1FB3C4E900F19BF5 /* CreateTripVC.swift */,
+				B9848D761FE0A3FC00B65C28 /* TripDetailVC.swift */,
 			);
-			path = Profile;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +191,7 @@
 				B9CDD49C1FB3C4E900F19BF5 /* CreateTripVC.swift in Sources */,
 				B837847D1FA141F700E82E80 /* TripDataModel.swift in Sources */,
 				B9CDD4941FB3C23F00F19BF5 /* ProfileVC.swift in Sources */,
+				B9848D771FE0A3FC00B65C28 /* TripDetailVC.swift in Sources */,
 				B83B307A1FA00AB600903B24 /* LoginVC.swift in Sources */,
 				B837847B1FA13C7100E82E80 /* NoMatchViewController.swift in Sources */,
 				B9AFB07D1FB5282500133D3C /* Networking.swift in Sources */,

@@ -12,19 +12,17 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
-    var user : User?
+    var user : User? = nil
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBAction func didPressTrips(_ sender: Any) {
         
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.user = user?.username
-//        self.usernameLabel.delegate = self
-        
+//        self.user?.username
+        self.usernameLabel.text = user?.username
     }
-    
 }

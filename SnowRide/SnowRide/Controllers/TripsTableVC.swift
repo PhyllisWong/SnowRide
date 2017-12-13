@@ -11,6 +11,7 @@ import UIKit
 class TripsTableVC: UITableViewController {
 
     var tripsList = [Trip]()
+    var selectedTrip: Trip?
     
     // code to make the add trip nav bar button go to the CreateTripVC
     @IBAction func didPressAdd(_ sender: UIBarButtonItem) {
@@ -44,6 +45,20 @@ class TripsTableVC: UITableViewController {
         // set the row height for the tableView large enough to display all the data
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.rowHeight = 120
+    }
+    
+    // When user selects a row in the table view go to the detail view of the trip
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTrip = tripsList[indexPath.row]
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//
+//        let tripDetailVC = storyboard.instantiateViewController(withIdentifier: "TripDetailVC") as! TripDetailVC
+//
+//        tripDetailVC.trip = trip
+//        tripDetailVC.user = user
+        //        print(tripDetailVC.trip)
+//        self.navigationController?.pushViewController(tripDetailVC, animated: true)
+        performSegue(withIdentifier: "detailSegue", sender: self)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,6 +116,10 @@ class TripsTableVC: UITableViewController {
         }    
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tripDetailVC = segue.destination as? TripDetailVC else { return }
+        tripDetailVC.trip = selectedTrip
+    }
 
     /*
     // Override to support rearranging the table view.
