@@ -40,6 +40,7 @@ class TripsTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 218/255, green: 250/255, blue: 248/255, alpha: 1)
         self.title = "Snow Ride Trips"
         
         // set the row height for the tableView large enough to display all the data
